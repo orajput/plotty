@@ -66,9 +66,15 @@ int main() {
   plotty::show();
 
   // Histogram
-  plotty::hist(points, 3);
-  plotty::show();
-
+  try
+  {
+    plotty::hist(points, 3);
+    plotty::show();
+  }
+  catch (...)
+  {
+    std::cerr << "Unable to plot the histogram..." << std::endl;
+  }
   // Row vectors
   Eigen::MatrixXd matrix(2, 100);
   matrix.setRandom();
